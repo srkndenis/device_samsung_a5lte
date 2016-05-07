@@ -20,12 +20,5 @@
 #define BTM_DEF_LOCAL_NAME   "Samsung Galaxy A5"
 #define BLUETOOTH_QTI_SW TRUE
 #define BTC_INCLUDED TRUE
-// Disables read remote device feature
-#define BTA_SKIP_BLE_READ_REMOTE_FEAT FALSE
-#define MAX_ACL_CONNECTIONS    7
-#define MAX_L2CAP_CHANNELS    16
-// skips conn update at conn completion
-#define BTA_BLE_SKIP_CONN_UPD  FALSE
 
-#define BLE_PERIPHERAL_ADV_NAME  TRUE
 #endif
