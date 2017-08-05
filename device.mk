@@ -138,6 +138,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Dirac
 
+# FlipFlap
+PRODUCT_PACKAGES += \
+    FlipFlap
+
 # Display
 PRODUCT_PACKAGES += \
     gralloc.msm8916 \
