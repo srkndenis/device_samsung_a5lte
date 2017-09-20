@@ -281,19 +281,19 @@ on property:dev.bootcomplete=1
     restorecon /data/data/com.android.providers.telephony/databases
     restorecon /data/data/com.android.providers.telephony/shared_prefs
 
-service irsc_util /system/vendor/bin/irsc_util "/system/vendor/etc/sec_config"
+service vendor.irsc_util /system/vendor/bin/irsc_util "/system/vendor/etc/sec_config"
     class main
     user root
     oneshot
 
-service rmt_storage /system/vendor/bin/rmt_storage
+service vendor.rmt_storage /system/vendor/bin/rmt_storage
     class core
     user root
     group system wakelock
     writepid /dev/cpuset/system-background/tasks
     shutdown critical
 
-service hciattach /system/vendor/bin/init.qcom.bt.sh
+service vendor.hciattach /system/vendor/bin/init.qcom.bt.sh
     class late_start
     user bluetooth
     group bluetooth net_bt_admin
@@ -301,7 +301,7 @@ service hciattach /system/vendor/bin/init.qcom.bt.sh
     oneshot
 
 on property:vendor.bluetooth.hciattach=true
-    start hciattach
+    start vendor.hciattach
 
 on property:vendor.bluetooth.hciattach=false
     setprop vendor.bluetooth.status off
@@ -314,13 +314,13 @@ on property:hw.fm.init=1
     write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
 
 # QMUX must be in multiple groups to support external process connections
-service qmuxd /system/vendor/bin/qmuxd
+service vendor.qmuxd /system/vendor/bin/qmuxd
     class main
     user root
     group radio audio bluetooth gps oem_2950 wakelock
     writepid /dev/cpuset/system-background/tasks
 
-service msm_irqbalance /system/vendor/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
+service vendor.msm_irqbalance /system/vendor/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
     class core
     user root
     group root
@@ -351,13 +351,13 @@ service charger /system/bin/charger
     writepid /dev/cpuset/system-background/tasks
 
 #start camera server as daemon
-service qcamerasvr /system/bin/mm-qcamera-daemon
+service vendor.qcamerasvr /system/bin/mm-qcamera-daemon
     class main
     user camera
     group camera system inet input graphics gps
 
 on property:sys.boot_completed=1
-    restart qcamerasvr
+    restart vendor.qcamerasvr
 
     # Enable Touch Devices
     write /sys/class/touch_key/control manual
@@ -374,14 +374,14 @@ service vendor.qseecomd /system/vendor/bin/qseecomd
     disabled
     writepid /dev/cpuset/system-background/tasks
 
-service perfd /system/vendor/bin/perfd
+service vendor.perfd /system/vendor/bin/perfd
     class main
     user root
     group root readproc system
     disabled
     writepid /dev/cpuset/system-background/tasks
 
-service thermal-engine /system/vendor/bin/thermal-engine
+service vendor.thermal-engine /system/vendor/bin/thermal-engine
     class main
     user root
     socket thermal-send-client stream 0666 system system
@@ -390,7 +390,7 @@ service thermal-engine /system/vendor/bin/thermal-engine
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service ppd /system/vendor/bin/mm-pp-daemon
+service vendor.ppd /system/vendor/bin/mm-pp-daemon
     class late_start
     disabled
     user system
@@ -398,24 +398,24 @@ service ppd /system/vendor/bin/mm-pp-daemon
     group system graphics
 
 on property:init.svc.surfaceflinger=stopped
-    stop ppd
+    stop vendor.ppd
 
 on property:init.svc.surfaceflinger=running
-    start ppd
+    start vendor.ppd
 
 on property:init.svc.surfaceflinger=restarting
-    stop ppd
+    stop vendor.ppd
 
 on property:init.svc.zygote=stopped
-    stop ppd
+    stop vendor.ppd
 
 on property:init.svc.zygote=running
-    start ppd
+    start vendor.ppd
 
 on property:init.svc.zygote=restarting
-    stop ppd
+    stop vendor.ppd
 
-service wcnss-service /system/vendor/bin/wcnss_service
+service vendor.wcnss-service /system/vendor/bin/wcnss_service
     class late_start
     user system
     group system wifi radio
@@ -425,7 +425,7 @@ on charger
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "powersave"
 
-service qcom-mem /system/vendor/bin/init.qcom.mem.sh
+service vendor.qcom-mem /system/vendor/bin/init.qcom.mem.sh
     disabled
     oneshot
 
