@@ -130,7 +130,6 @@ BOARD_HAVE_QCOM_FM := true
 TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # GPS
-TARGET_NO_RPC := true
 USE_DEVICE_SPECIFIC_GPS := true
 
 # Kernel
