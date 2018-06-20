@@ -162,10 +162,6 @@ vendor/lib/libOmxAacDec.so|7125dc53aaee56170b269278865b4ef3c4c8c61b
 vendor/lib/libOmxEvrcDec.so|9d7ebe0f32b84f131f28aab38ce90fb65ac1c87d
 vendor/lib/libOmxQcelp13Dec.so|b33a772d50668ac636b5db6a2d22d31f74ca5b2e
 
-# Perf - from jalebi
-vendor/bin/perfd|5e31de336247378b0674b4d65494567ab76c190c
-vendor/lib/libqti-perfd-client.so|90b2007264bcda7fc706fd55becdea4c6b999233
-
 # Postprocessing - from jalebi
 bin/mm-pp-daemon:vendor/bin/mm-pp-daemon|56777bd6e5023b2d39efa3a3a7df11af3a06aa73
 vendor/lib/libdisp-aba.so|4445ff1e090b0122077823576ec4a38a3e8e2ae6
