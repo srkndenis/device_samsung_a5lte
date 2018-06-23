@@ -157,7 +157,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     gralloc.msm8916 \
     hwcomposer.msm8916 \
-    copybit.msm8916 \
     libgenlock \
     libtinyxml \
     memtrack.msm8916
