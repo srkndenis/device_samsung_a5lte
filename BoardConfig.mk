@@ -118,8 +118,9 @@ TARGET_HW_KEYMASTER_V03 := true
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 TARGET_PROVIDES_KEYMASTER := true
 
-# Exclude serif fonts for saving system.img size.
+# Fonts
 EXCLUDE_SERIF_FONTS := true
+SMALLER_FONT_FOOTPRINT := true
 
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
