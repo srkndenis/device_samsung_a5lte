@@ -103,13 +103,6 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
     /system/bin/mediaserver=22 \
     /system/bin/mm-qcamera-daemon=22
 
-# Dex
-WITH_DEXPREOPT := true
-WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
-
-# DexPreopt debug info
-WITH_DEXPREOPT_DEBUG_INFO := false
-
 # Display
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000
