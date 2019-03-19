@@ -321,7 +321,7 @@
          we rely on gravity to determine the effective orientation. -->
     <bool name="config_deskDockEnablesAccelerometer">false</bool>
 
-   <!-- Older rotation sensors are not setting event.timestamp correctly. Setting to
+    <!-- Older rotation sensors are not setting event.timestamp correctly. Setting to
          true will use SystemClock.elapsedRealtimeNanos() to set timestamp. -->
     <bool name="config_useSystemClockforRotationSensor">true</bool>
 
@@ -334,8 +334,12 @@
     <!-- Smart Pixels -->
     <bool name="config_enableSmartPixels">true</bool>	
  
- <!-- The list of components which should be automatically disabled for a specific device. -->
+    <!-- The list of components which should be automatically disabled for a specific device. -->
     <string-array name="config_deviceDisabledComponents" translatable="false">
         <item>com.google.android.gms/com.google.android.gms.nearby.messages.service.NearbyMessagesService</item>
     </string-array>
+
+    <!-- True if the firmware supports Wi-Fi link probing -->
+    <bool name="config_wifi_link_probing_supported">true</bool>
+
 </resources>
