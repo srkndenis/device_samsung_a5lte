@@ -138,23 +138,6 @@
         <item>28</item>
     </integer-array>
 
-    <!-- Default list of files pinned by the Pinner Service -->
-    <string-array translatable="false" name="config_defaultPinnerServiceFiles">
-        <item>"/system/framework/arm/boot-framework.oat"</item>
-        <item>"/system/framework/boot-framework.vdex"</item>
-        <item>"/system/framework/framework.jar"</item>
-        <item>"/system/framework/oat/arm/services.odex"</item>
-        <item>"/system/framework/oat/arm/services.vdex"</item>
-        <item>"/system/framework/services.jar"</item>
-        <item>"/system/framework/boot.vdex"</item>
-        <item>"/system/framework/boot-core-libart.vdex"</item>
-        <item>"/apex/com.android.art.release/javalib/core-oj.jar"</item>
-        <item>"/apex/com.android.art.release/javalib/core-libart.jar"</item>
-        <item>"/apex/com.android.media/javalib/updatable-media.jar"</item>
-        <item>"/system_ext/priv-app/SystemUI/SystemUI.apk"</item>
-        <item>"/system/lib/libsurfaceflinger.so"</item>
-   </string-array>
-
     <!-- This string array should be overridden by the device to present a list of network
          attributes.  This is used by the connectivity manager to decide which networks can coexist
          based on the hardware -->
@@ -347,7 +330,7 @@
 
     <!-- Feature flag to store TaskSnapshot in 16 bit pixel format to save memory. -->
     <bool name="config_use16BitTaskSnapshotPixelFormat">true</bool>
-    
+
     <!-- Feature flag to enable memory efficient task snapshots that are used in recents optimized
          for low memory devices and replace the app transition starting window with the splash
          screen. -->
