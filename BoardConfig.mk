@@ -221,9 +221,8 @@ TARGET_RECOVERY_SKIP_EV_REL_INPUT := true
 
 # SELinux
 SELINUX_IGNORE_NEVERALLOWS := true
-BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy-tmp
-#include device/qcom/sepolicy-legacy/sepolicy.mk
-#BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+include device/qcom/sepolicy-legacy/sepolicy.mk
+BOARD_VENDOR_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
 # TWRP
 ifeq ($(WITH_TWRP),true)
