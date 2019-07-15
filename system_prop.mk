@@ -94,6 +94,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.izat.premium_enabled=0 \
     ro.qc.sdk.izat.service_mask=0x0
 
+# Charger
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.charger.enable_suspend=true
+
 #DNS
 PRODUCT_PROPERTY_OVERRIDES += \
     net.dns1=1.1.1.1 \
