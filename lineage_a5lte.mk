@@ -45,5 +45,6 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE="a5ltexx"
     PRIVATE_BUILD_DESC="a5ltexx-user 6.0.1 MMB29M A500FXXU1CPH2 release-keys"
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.havoc.maintainer=srkndenis
+
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.build.fingerprint=$(BUILD_FINGERPRINT)
