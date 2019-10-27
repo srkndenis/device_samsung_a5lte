@@ -186,6 +186,10 @@ PRODUCT_PACKAGES += \
     mkfs.f2fs \
     fs_config_files
 
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_image
+
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8916 \
