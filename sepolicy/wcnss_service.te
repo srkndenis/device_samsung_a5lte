@@ -1,0 +1,1 @@
+type_transition wcnss_service persist_file:file wifi_data_file "wlan_mac.bin";
