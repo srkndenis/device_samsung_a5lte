@@ -68,6 +68,9 @@
 /sys/class/input/input1/enabled                         u:object_r:sysfs_sec_touchkey:s0
 /sys/class/input/input2/enabled                         u:object_r:sysfs_sec_touchkey:s0
 
-/persist/wlan_mac\.bin                               u:object_r:wifi_data_file:s0
-/persist/acc_avg(/.*)?                               u:object_r:sensors_persist_file:s0
-/persist/prox_avg(/.*)?                              u:object_r:sensors_persist_file:s0
+/persist/wlan_mac\.bin                                  u:object_r:wifi_data_file:s0
+/persist/acc_avg(/.*)?                                  u:object_r:sensors_persist_file:s0
+/persist/prox_avg(/.*)?                                 u:object_r:sensors_persist_file:s0
+
+# Block labeling
+/dev/block/zram0                                        u:object_r:swap_block_device:s0
