@@ -16,16 +16,17 @@ on enable-low-power
     # enable governor
     write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 800000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 200000
+
     # enable thermal core_control now
     write /sys/module/msm_thermal/core_control/enabled 1
 
-    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "25000 1094400:50000"
+    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "25000 1152000:100000"
     write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 90
-    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 30000
-    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 998400
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1152000
     write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 0
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "1 800000:85 998400:90 1094400:80"
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "1 200000:15 400000:25 533330:40 800000:60 998400:70 1094400:80"
     write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 50000
     write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 50000
 
@@ -33,7 +34,8 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
     write /sys/devices/system/cpu/cpu3/online 1
-
+    write /sys/devices/system/cpu/cpu4/online 1
+    
     # Enable low power modes
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
@@ -57,13 +59,13 @@ on enable-low-power
     chmod 0664 /dev/cpuset/camera-daemon/tasks
 
     # Update foreground and background cpusets
-    # Reserve CPU 3 for the top app
-    write /dev/cpuset/foreground/cpus 0-2
-    write /dev/cpuset/background/cpus 0-2
-    write /dev/cpuset/system-background/cpus 0-1
-    write /dev/cpuset/top-app/cpus 0-3
-    write /dev/cpuset/camera-daemon/cpus 0-3
-    write /dev/cpuset/restricted/cpus 0-3
+    # Reserve CPU 4 for the top app
+    write /dev/cpuset/foreground/cpus 0-3
+    write /dev/cpuset/background/cpus 0-3
+    write /dev/cpuset/system-background/cpus 0-2
+    write /dev/cpuset/top-app/cpus 0-4
+    write /dev/cpuset/camera-daemon/cpus 0-4
+    write /dev/cpuset/restricted/cpus 0-4
 
     setprop vendor.post_boot.parsed 1
 
