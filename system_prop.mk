@@ -105,6 +105,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so \
     ro.core_ctl_min_cpu=0 \
     ro.core_ctl_max_cpu=4 \
+    ro.min_freq_0=200000
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -130,7 +131,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Wi-Fi
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
-
-#HW keys
-PRODUCT_PROPERTY_OVERRIDES += \
-    qemu.hw.mainkeys=1
