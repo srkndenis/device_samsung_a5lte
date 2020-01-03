@@ -194,13 +194,13 @@
     <ctl name="IIR1 Enable Band3" value="0" />
     <ctl name="IIR1 Enable Band4" value="0" />
     <ctl name="IIR1 Enable Band5" value="0" />
-	
-	<ctl name="Initial external PA" value="disable" />
-	
-	<path name="init_smart_pa">
+    
+    <ctl name="Initial external PA" value="disable" />
+    
+    <path name="init_smart_pa">
         <ctl name="Initial external PA" value="enable" />
     </path>
-	
+    
     <!-- IIR -->
 
     <!-- These are audio route (FE to BE) specific mixer settings -->
@@ -347,7 +347,7 @@
     <path name="voice-call speaker">
         <ctl name="QUAT_MI2S_RX_Voice Mixer CSVoice" value="1" />
         <ctl name="Voice_Tx Mixer TERT_MI2S_TX_Voice" value="1" />
-	</path>
+    </path>
 
     <path name="voice-call bt-sco">
         <ctl name="INTERNAL_BT_SCO_RX_Voice Mixer CSVoice" value="1" />
