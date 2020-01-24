@@ -34,9 +34,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/ld.config.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/swcodec/ld.config.txt
 
-# Add APN(s)
-#PRODUCT_COPY_FILES += device/samsung/a5lte/configs/apns-conf.xml:system/etc/apns-conf.xml
-
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := hdpi
@@ -130,9 +127,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
 
-# Camera
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/camera/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
+# Charger images
+PRODUCT_PACKAGES += \
+    charger_res_images \
+    product_charger_res_images
 
 # Doze
 PRODUCT_PACKAGES += \
@@ -181,10 +179,6 @@ PRODUCT_PACKAGES += \
     fsck.f2fs \
     mkfs.f2fs \
     fs_config_files
-
-# Charger
-PRODUCT_PACKAGES += \
-    charger_res_image
 
 # GPS
 PRODUCT_PACKAGES += \
