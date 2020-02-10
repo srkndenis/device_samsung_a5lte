@@ -206,7 +206,8 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc
 
 PRODUCT_PACKAGES += \
-    init.qcom.bt.sh
+    init.qcom.bt.sh \
+    init.boot_boost.sh
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -246,6 +247,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.usb.id.ums=300F \
     ro.usb.id.ums_adb=3010 \
     ro.usb.vid=2a96
+
 # IRQ balance
 ifeq ($(TARGET_BOARD_PLATFORM_VARIANT),msm8939)
 PRODUCT_COPY_FILES += \
