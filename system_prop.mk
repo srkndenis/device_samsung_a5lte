@@ -134,3 +134,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Wi-Fi
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
+
+# debug props
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.debuggable=1 \
+    ro.adb.secure=0
