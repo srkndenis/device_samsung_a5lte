@@ -388,6 +388,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     keystore.qcom
 
+# Shipping API level (for CTS backward compatibility)
+PRODUCT_SHIPPING_API_LEVEL := 19
+
 # Setting vendor SPL
 VENDOR_SECURITY_PATCH = "2017-08-01"
 

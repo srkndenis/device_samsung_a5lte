@@ -19,6 +19,13 @@ FORCE_32_BIT := true
 
 DEVICE_PATH := device/samsung/a5lte
 
+# Allow overriding commands during build
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_PHONY_TARGETS := true
+
+# APEX image
+DEXPREOPT_GENERATE_APEX_IMAGE := true
+
 # Platform
 TARGET_BOARD_PLATFORM := msm8916
 TARGET_BOOTLOADER_BOARD_NAME := MSM8916
@@ -88,15 +95,9 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
     /system/bin/mediaserver=22 \
     /system/bin/mm-qcamera-daemon=22 \
 
-# Dexpreopt
-# Always preopt extracted APKs to prevent extracting out of the APK
-# for gms modules.
-PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
-
-ifeq ($(HOST_OS),linux)
-    WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= false
-    WITH_DEXPREOPT := true
-endif
+# Dex
+WITH_DEXPREOPT := true
+WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
 
 # Display
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
@@ -216,9 +217,6 @@ TARGET_LD_SHIM_LIBS := \
     /system/lib/libmmjpeg_interface.so|libboringssl-compat.so \
     /system/lib/hw/camera.vendor.msm8916.so|libcamera_shim.so \
     /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so
-
-# Shipping API level (for CTS backward compatibility)
-PRODUCT_SHIPPING_API_LEVEL := 19
 
 #Telephone
 TARGET_USES_ALTERNATIVE_MANUAL_NETWORK_SELECT := true
