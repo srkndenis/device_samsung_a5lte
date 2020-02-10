@@ -93,7 +93,7 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 # Camera
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
     /system/bin/mediaserver=22 \
-    /system/bin/mm-qcamera-daemon=22 \
+    /system/bin/mm-qcamera-daemon=22
 
 # Dex
 WITH_DEXPREOPT := true
@@ -130,7 +130,14 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE  := 12775813120
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
-BOARD_ROOT_EXTRA_FOLDERS := firmware firmware-modem persist
+
+# Root folders
+BOARD_ROOT_EXTRA_FOLDERS := \
+    firmware \
+    firmware-modem \
+    efs \
+    misc \
+    persist
 
 # FM
 AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
