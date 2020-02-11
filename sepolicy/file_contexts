@@ -82,7 +82,8 @@ sys/bus/platform/drivers/sec-battery/battery.85/power_supply/battery(/.*)?				u:
 /persist/prox_avg(/.*)?                                 u:object_r:sensors_persist_file:s0
 
 # Root directories
-/firmware(/.*)?											u:object_r:firmware_file:s0
-/firmware-modem(/.*)?										u:object_r:firmware-modem_file:s0
-/persist(/.*)?											u:object_r:persist_file:s0
-/misc(/.*)?											u:object_r:misc_file:s0
+#/firmware(/.*)?                                        u:object_r:firmware_file:s0
+/firmware-modem(/.*)?                                   u:object_r:firmware-modem_file:s0
+#/persist(/.*)?                                         u:object_r:persist_file:s0
+/misc(/.*)?                                             u:object_r:misc_file:s0
+/tombstones                                             u:object_r:rootfs:s0

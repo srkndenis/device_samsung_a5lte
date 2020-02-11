@@ -24,11 +24,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.bt.hci_transport=smd \
     ro.bt.bdaddr_path=/efs/bluetooth/bt_addr
 
+# Treble Misc.
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.media.treble_omx=false \
+    camera.disable_treble=true
+
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    camera2.portability.force_api=1 \
-    camera.disable_treble=true \
-    camera2.portability.force_api=1 \
     debug.camcorder.disablemeta=true
 
 # Dalvik
@@ -86,9 +88,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dhcp.wlan0.dns2=1.0.0.1
 
 # Other
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.oem_unlock_supported=0 \
-    ro.frp.pst=/dev/block/bootdevice/by-name/hidden
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.oem_unlock_supported=0 \
+#    ro.frp.pst=/dev/block/bootdevice/by-name/hidden
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -101,6 +103,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.sys.fw.bservice_enable=true \
     ro.vendor.qti.am.reschedule_service=true
+
+# DEX
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.fw.dex2oat_thread_count=4 \
+    dalvik.vm.dex2oat-flags=--no-watch-dog
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -135,7 +142,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
 
-# debug props
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.adb.secure=0 \
     ro.debuggable=1 \
-    ro.adb.secure=0
+    persist.service.adb.enable=1 \
+    persist.sys.usb.config=adb
