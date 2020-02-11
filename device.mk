@@ -323,17 +323,17 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.2-service-qti
 
 # Radio
-PRODUCT_PACKAGES += \
-    libcnefeatureconfig \
-    librmnetctl \
-    libxml2
+#PRODUCT_PACKAGES += \
+#    libcnefeatureconfig \
+#    librmnetctl \
+#    libxml2
 
 # Manual SIM Provision
-PRODUCT_PACKAGES += \
-    qti-telephony-common
+#PRODUCT_PACKAGES += \
+#    qti-telephony-common
 
-PRODUCT_BOOT_JARS += \
-    telephony-ext
+#PRODUCT_BOOT_JARS += \
+#    telephony-ext
 
 # Recovery
 PRODUCT_PACKAGES += \
