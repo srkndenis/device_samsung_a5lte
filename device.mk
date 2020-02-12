@@ -31,6 +31,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/ld.config.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/swcodec/ld.config.txt
 
+# Add APN(s)
+PRODUCT_COPY_FILES += device/samsung/a5lte/configs/apns-conf.xml:system/etc/apns-conf.xml
+
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := hdpi
@@ -188,10 +191,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/sap.conf:system/etc/sap.conf
 
 # Radio
-PRODUCT_PACKAGES += \
-    libril \
-    librilutils \
-    rild
+#PRODUCT_PACKAGES += \
+#    libril \
+#    librilutils \
+#    rild
 
 # Init scripts
 PRODUCT_PACKAGES += \
@@ -323,17 +326,19 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.2-service-qti
 
 # Radio
-#PRODUCT_PACKAGES += \
-#    libcnefeatureconfig \
-#    librmnetctl \
-#    libxml2
+PRODUCT_PACKAGES += \
+    libcnefeatureconfig \
+    libsecnativefeature \
+    librmnetctl \
+    libxml2
 
 # Manual SIM Provision
-#PRODUCT_PACKAGES += \
-#    qti-telephony-common
+PRODUCT_PACKAGES += \
+    qti-telephony-common \
+    telephony-ext
 
-#PRODUCT_BOOT_JARS += \
-#    telephony-ext
+PRODUCT_BOOT_JARS += \
+    telephony-ext
 
 # Recovery
 PRODUCT_PACKAGES += \
