@@ -19,6 +19,8 @@ FORCE_32_BIT := true
 
 DEVICE_PATH := device/samsung/a5lte
 
+TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
+
 # Allow overriding commands during build
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_PHONY_TARGETS := true
@@ -190,17 +192,16 @@ TARGET_USES_INTERACTION_BOOST := true
 # QCOM
 BOARD_USES_QCOM_HARDWARE := true
 
-# Radio
-MALLOC_SVELTE := true
-#TARGET_RIL_VARIANT := caf
+# RIL
 BOARD_PROVIDES_LIBRIL := true
-TARGET_NEEDS_NETD_DIRECT_CONNECT_RULE := true
+TARGET_USES_OLD_MNC_FORMAT := true
 
-TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
-
+# Legacy blobs
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
-    /vendor/bin/hw/rild=27 \
     /system/vendor/bin/hw/rild=27
+
+# Network Routing
+TARGET_NEEDS_NETD_DIRECT_CONNECT_RULE := true
 
 # Recovery
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_cm

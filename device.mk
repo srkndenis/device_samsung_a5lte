@@ -32,7 +32,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/ld.config.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/swcodec/ld.config.txt
 
 # Add APN(s)
-PRODUCT_COPY_FILES += device/samsung/a5lte/configs/apns-conf.xml:system/etc/apns-conf.xml
+#PRODUCT_COPY_FILES += device/samsung/a5lte/configs/apns-conf.xml:system/etc/apns-conf.xml
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
@@ -190,12 +190,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/izat.conf:system/etc/izat.conf \
     $(LOCAL_PATH)/gps/sap.conf:system/etc/sap.conf
 
-# Radio
-#PRODUCT_PACKAGES += \
-#    libril \
-#    librilutils \
-#    rild
-
 # Init scripts
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -328,11 +322,10 @@ PRODUCT_PACKAGES += \
 # Radio
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
-    libsecnativefeature \
     librmnetctl \
     libxml2
 
-# Manual SIM Provision
+# Radio
 PRODUCT_PACKAGES += \
     qti-telephony-common \
     telephony-ext

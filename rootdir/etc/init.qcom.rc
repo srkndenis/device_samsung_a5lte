@@ -32,6 +32,7 @@ import /vendor/etc/init/hw/init.target.rc
 on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
+    chmod 644 /proc/cmdline
 
     # Turn off backlight on blank
     write /sys/class/leds/lcd-backlight/trigger "backlight"
@@ -75,10 +76,6 @@ on post-fs-data
     mkdir /data/tombstones/wcnss 0771 system system
     mkdir /data/tombstones/dsps 0771 system system
 
-    # RIL LINK
-    rm /data/data/com.android.providers.telephony/databases
-    rm /data/data/com.android.providers.telephony/shared_prefs
-
     setprop vold.post_fs_data_done 1
 
 on early-boot
@@ -95,15 +92,15 @@ on early-boot
 
     write /sys/kernel/boot_adsp/boot 1
 
+    # Remove symlinks to avoid issues with migrate after nandroid restores
+    # Will be recreated at end of boot
+    rm /data/data/com.android.providers.telephony/databases/telephony.db
+    rm /data/data/com.android.providers.telephony/shared_prefs/preferred-apn.xml
+
 on boot
     # Permissions for Bluetooth.
-    setprop ro.bt.bdaddr_path /efs/bluetooth/bt_addr
-    chown bluetooth bluetooth ro.bt.bdaddr_path
-    chown radio bluetooth /efs/bluetooth/bt_addr
-    chmod 0640 /efs/bluetooth/bt_addr
-    chmod 0660 /sys/class/rfkill/rfkill0/state
-    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chown bluetooth bluetooth /dev/ttyHS0
     chmod 0660 /dev/ttyHS0
@@ -258,13 +255,6 @@ on boot
     chown system system /sys/class/camera/front/front_camfw_full
     chown system system /sys/class/camera/front/front_camfw_load
 
-on property:dev.bootcomplete=1
-    # Symlink directories to access telephony.db required by RIL
-    symlink /data/user_de/0/com.android.providers.telephony/databases /data/data/com.android.providers.telephony/databases
-    symlink /data/user_de/0/com.android.providers.telephony/shared_prefs /data/data/com.android.providers.telephony/shared_prefs
-    restorecon /data/data/com.android.providers.telephony/databases
-    restorecon /data/data/com.android.providers.telephony/shared_prefs
-
 service irsc_util /system/vendor/bin/irsc_util "/system/vendor/etc/sec_config"
     class main
     user root
@@ -309,12 +299,6 @@ service msm_irqbalance /system/vendor/bin/msm_irqbalance -f /system/vendor/etc/m
     class core
     user root
     group root
-    writepid /dev/cpuset/system-background/tasks
-
-service netmgrd /system/vendor/bin/netmgrd
-    class main
-    user root
-    group root wifi wakelock radio inet
     writepid /dev/cpuset/system-background/tasks
 
 # Adjust socket buffer to enlarge TCP receive window for high bandwidth
@@ -431,3 +415,12 @@ service qcom-mem /system/vendor/bin/init.qcom.mem.sh
 
 on property:apexd.status=ready
     mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
+
+on property:sys.boot_completed=1
+    # Symlink telephony.db and preferred-apn.xml
+    mkdir /data/data/com.android.providers.telephony/databases 0700 radio radio
+    mkdir /data/data/com.android.providers.telephony/shared_prefs 0700 radio radio
+    symlink /data/user_de/0/com.android.providers.telephony/databases/telephony.db /data/data/com.android.providers.telephony/databases/telephony.db
+    symlink /data/user_de/0/com.android.providers.telephony/shared_prefs/preferred-apn.xml /data/data/com.android.providers.telephony/shared_prefs/preferred-apn.xml
+    restorecon /data/data/com.android.providers.telephony/databases
+    restorecon /data/data/com.android.providers.telephony/shared_prefs
