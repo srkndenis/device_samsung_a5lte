@@ -136,7 +136,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnGsmDevice=1 \
     ro.ril.telephony.mqanelements=6 \
     ro.telephony.call_ring.multiple=0 \
-    ro.telephony.ril.config=simactivation
+    ro.telephony.ril.config=simactivation \
+    persist.sys.fflag.override.settings_network_and_internet_v2=true
 
 # Wi-Fi
 PRODUCT_PROPERTY_OVERRIDES += \
