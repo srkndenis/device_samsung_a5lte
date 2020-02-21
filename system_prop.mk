@@ -29,6 +29,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.media.treble_omx=false \
     camera.disable_treble=true
 
+# Boot
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.vendor.shutdown.waittime=500 \
+    ro.build.shutdown_timeout=0
+
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.camcorder.disablemeta=true
