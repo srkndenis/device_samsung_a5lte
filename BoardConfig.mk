@@ -198,7 +198,7 @@ TARGET_USES_OLD_MNC_FORMAT := true
 
 # Legacy blobs
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
-    /system/vendor/bin/hw/rild=27
+    /system/vendor/bin/hw/rild=27 \
     /system/bin/hw/rild=27
 
 # Network Routing

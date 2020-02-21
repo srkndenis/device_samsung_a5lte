@@ -17,6 +17,9 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
+# Inherit from common
+$(call inherit-product, device/samsung/qcom-common/qcom-common.mk)
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_ENFORCE_RRO_TARGETS := framework-res
@@ -132,12 +135,11 @@ PRODUCT_COPY_FILES += \
 
 # Doze
 PRODUCT_PACKAGES += \
-    XiaomiDoze
+    SamsungDoze
 
 # Display
 PRODUCT_PACKAGES += \
     gralloc.msm8916 \
-    copybit.msm8916 \
     hwcomposer.msm8916 \
     libgenlock \
     libtinyxml \
@@ -320,18 +322,16 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.2-service-qti
 
 # Radio
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/data/netmgr_config.xml:system/etc/data/netmgr_config.xml \
+    $(LOCAL_PATH)/configs/data/qmi_config.xml:system/etc/data/qmi_config.xml \
+    $(LOCAL_PATH)/configs/data/dsi_config.xml:system/etc/data/dsi_config.xml
+
+# Radio
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     librmnetctl \
     libxml2
-
-# Radio
-PRODUCT_PACKAGES += \
-    qti-telephony-common \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
 
 # Recovery
 PRODUCT_PACKAGES += \
