@@ -119,15 +119,16 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Camera2 \
+    android.hardware.camera.provider@2.4-impl-legacy \
+    camera.device@1.0-impl-legacy \
+    libcamera_shim \
     libmm-qcamera \
     camera.msm8916 \
-    android.hardware.camera.provider@2.4-impl \
-    camera.device@1.0-impl
+    Snap
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.stagefright.legacyencoder=true \
-    media.stagefright.less-secure=true
+# Camera
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
 
 # Camera
 PRODUCT_COPY_FILES += \
