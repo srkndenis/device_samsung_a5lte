@@ -141,8 +141,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnGsmDevice=1 \
     ro.ril.telephony.mqanelements=6 \
     ro.telephony.call_ring.multiple=0 \
-    ro.telephony.ril.config=simactivation \
-    persist.sys.fflag.override.settings_network_and_internet_v2=true
+    ro.telephony.ril.config=simactivation
+
+# NITZ
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.rild.nitz_plmn="" \
+    persist.rild.nitz_long_ons_0="" \
+    persist.rild.nitz_long_ons_1="" \
+    persist.rild.nitz_long_ons_2="" \
+    persist.rild.nitz_long_ons_3="" \
+    persist.rild.nitz_short_ons_0="" \
+    persist.rild.nitz_short_ons_1="" \
+    persist.rild.nitz_short_ons_2="" \
+    persist.rild.nitz_short_ons_3=""
 
 # Wi-Fi
 PRODUCT_PROPERTY_OVERRIDES += \
