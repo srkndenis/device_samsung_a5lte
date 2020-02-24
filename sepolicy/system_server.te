@@ -5,3 +5,7 @@ allow system_server domain:process setsched;
 allow system_server vendor_file:file execmod;
 allow system_server sensors_persist_file:dir search;
 allow system_server sensors_persist_file:file r_file_perms;
+allow system_server sensors_device:chr_file rw_file_perms;
+allow system_server efs_file:dir search;
+allow system_server sysfs_vibeamp:file write;
+r_dir_file(system_server, persist_file)
