@@ -217,11 +217,6 @@ etc/firmware/venus.b04:vendor/firmware/venus.b04
 etc/firmware/venus.mbn:vendor/firmware/venus.mbn
 etc/firmware/venus.mdt:vendor/firmware/venus.mdt
 
-# Thermal
-vendor/bin/thermal-engine|5d7e03971fdc7f2e16c84a72430734bcb7328e82
-vendor/lib/libthermalclient.so
-vendor/lib/libthermalioctl.so
-
 # Time services
 -app/TimeService/TimeService.apk:vendor/app/TimeService/TimeService.apk
 bin/time_daemon:vendor/bin/time_daemon
