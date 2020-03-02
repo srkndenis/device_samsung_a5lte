@@ -1,4 +1,0 @@
-allow inputdisabler_service sysfs_sec_touchkey:dir search;
-allow inputdisabler_service sysfs_sec_touchkey:file rw_file_perms;
-allow system_app sysfs_sec_touchkey:dir search;
-allow system_app sysfs_sec_touchkey:file rw_file_perms;

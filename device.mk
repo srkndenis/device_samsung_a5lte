@@ -176,8 +176,10 @@ PRODUCT_PACKAGES += \
     FMRadio \
     libfmjni
 
-# For config.fs
+# Filesystem
 PRODUCT_PACKAGES += \
+    fsck.f2fs \
+    mkfs.f2fs \
     fs_config_files
 
 # GPS
@@ -259,12 +261,11 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
-# Keymaster
-ifneq ($(TARGET_PROVIDES_KEYMASTER),true)
+# Keystore
 PRODUCT_PACKAGES += \
     keystore.msm8916
-endif
 
+# Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
     android.hardware.keymaster@3.0-service
@@ -382,7 +383,7 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service.a5
+    android.hardware.usb@1.0-service.basic
 
 # Vibrator
 PRODUCT_PACKAGES += \
@@ -400,10 +401,6 @@ PRODUCT_PACKAGES += \
 # Touch
 PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.a5
-
-# KeyStore
-PRODUCT_PACKAGES += \
-    keystore.qcom
 
 # Shipping API level (for CTS backward compatibility)
 PRODUCT_SHIPPING_API_LEVEL := 19
