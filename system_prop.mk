@@ -126,6 +126,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.core_ctl_max_cpu=4 \
     ro.min_freq_0=200000
 
+# Tweaks
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.low_ram=true \
+    ro.vendor.qti.sys.fw.bg_apps_limit=10
+
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/vendor/lib/libsec-ril.so \
