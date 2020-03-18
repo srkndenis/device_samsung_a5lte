@@ -159,12 +159,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
 
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.adb.secure=0 \
-    ro.debuggable=1 \
-    persist.service.adb.enable=1 \
-    persist.sys.usb.config=adb
-
 # LMKD
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.lmk.critical_upgrade=true \
