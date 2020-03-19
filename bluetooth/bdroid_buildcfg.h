@@ -19,6 +19,5 @@
 
 #define BTM_DEF_LOCAL_NAME   "Samsung Galaxy A5"
 #define BLUETOOTH_QTI_SW TRUE
-#define BTC_INCLUDED TRUE
 
 #endif
