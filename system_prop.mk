@@ -60,7 +60,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=0 \
     ro.qualcomm.svi=1 \
     ro.sf.lcd_density=280 \
-    ro.opengles.version=196608
+    ro.opengles.version=196608 \
+    ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
+    ro.surface_flinger.max_frame_buffer_acquired_buffers=3\
+    ro.surface_flinger.vsync_event_phase_offset_ns=4000000 \
+    ro.surface_flinger.vsync_sf_event_phase_offset_ns=8000000
 
 # Data services
 PRODUCT_PROPERTY_OVERRIDES += \
