@@ -198,7 +198,7 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.target.rc \
     init.qcom.rc \
-    init.qcom.mem.sh \
+    init.qcom.post_boot.sh \
     init.qcom.power.rc \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
@@ -336,9 +336,7 @@ PRODUCT_COPY_FILES += \
 
 # Radio
 PRODUCT_PACKAGES += \
-    libsecnativefeature \
-    librmnetctl \
-    libxml2
+    libsecnativefeature
 
 # Telephony
 #PRODUCT_PACKAGES += \
