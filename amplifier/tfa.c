@@ -117,8 +117,6 @@ static void * write_dummy_data(void *param) {
 
     t->writing = false;
 
-err_free:
-    free(buffer);
 err_close_pcm:
     pcm_close(pcm);
 err_disable_i2s:
