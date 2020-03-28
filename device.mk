@@ -319,21 +319,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/data/qmi_config.xml:system/etc/data/qmi_config.xml \
     $(LOCAL_PATH)/configs/data/dsi_config.xml:system/etc/data/dsi_config.xml
 
-# Privapp Whitelist
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml
-
 # Radio
 PRODUCT_PACKAGES += \
-    libsecnativefeature
-
-# Telephony
-#PRODUCT_PACKAGES += \
-#    qti-telephony-common \
-#    telephony-ext
-#
-#PRODUCT_BOOT_JARS += \
-#    telephony-ext
+    libsecnativefeature \
+    libcnefeatureconfig \
+    librmnetctl \
+    libxml2
 
 # Recovery
 PRODUCT_PACKAGES += \
