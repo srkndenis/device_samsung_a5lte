@@ -425,6 +425,10 @@ service qcom-post-boot /system/vendor/bin/init.qcom.post_boot.sh
     disabled
     oneshot
 
+on property:sys.boot_completed=1
+    start qcom-post-boot
+    setprop sys.io.scheduler "cfq"
+
     # post-boot fs tune
     write /sys/block/mmcblk0/queue/read_ahead_kb 1024
     write /sys/block/mmcblk1/queue/read_ahead_kb 512
@@ -439,10 +443,6 @@ service qcom-post-boot /system/vendor/bin/init.qcom.post_boot.sh
     write /sys/module/wakeup/parameters/enable_netmgr_wl_ws 0
     write /sys/module/wakeup/parameters/enable_wlan_pno_wl_ws 0
     write /sys/module/wakeup/parameters/enable_wcnss_filter_lock_ws 0
-
-on property:sys.boot_completed=1
-    start qcom-post-boot
-    setprop sys.io.scheduler "cfq"
 
 on property:apexd.status=ready
     mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind

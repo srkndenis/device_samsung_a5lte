@@ -326,6 +326,14 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
 
+# Telephony
+PRODUCT_PACKAGES += \
+    qti-telephony-common \
+    telephony-ext
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext
+
 # Recovery
 PRODUCT_PACKAGES += \
     librecovery_updater_cm
