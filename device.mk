@@ -259,7 +259,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.0-service.samsung-qcom
 
-# Media
+# OMX
 PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxAacEnc \
@@ -269,6 +269,7 @@ PRODUCT_PACKAGES += \
     libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVenc \
+    libOmxVidcCommon \
     libstagefrighthw
 
 PRODUCT_COPY_FILES += \
