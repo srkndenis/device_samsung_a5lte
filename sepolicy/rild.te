@@ -1,3 +1,5 @@
+binder_use(rild)
+
 allow rild app_efs_file:dir search;
 allow rild app_efs_file:file r_file_perms;
 allow rild proc_cmdline:file r_file_perms;
