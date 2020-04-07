@@ -12,7 +12,7 @@ allow init sysfs:lnk_file setattr;
 allow init exfat:dir search;
 allow init shell_exec:file execute_no_trans;
 allow init sysfs:file { open write setattr };
-allow init sysfs_graphics:file setattr;
+allow init sysfs_graphics:file { open write setattr };
 allow init sysfs_vibeamp:file setattr;
 allow init system_file:file execute_no_trans;
 allow init self:socket { create ioctl };
@@ -32,7 +32,7 @@ allow init fm_radio_device:chr_file ioctl;
 allow init sysfs_fm:file write;
 
 allow init sysfs_lowmemorykiller:file w_file_perms;
-allow init sysfs_mdnie:file setattr;
+allow init sysfs_mdnie:file { open write setattr };
 allow init sysfs_sensors:file { r_file_perms setattr };
 allow init sysfs_sensors:lnk_file r_file_perms;
 allow init vendor_file:file execute_no_trans;
