@@ -75,7 +75,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.gps.qc_nlp_in_use=0 \
     ro.gps.agps_provider=1 \
     ro.qc.sdk.izat.premium_enabled=0 \
-    ro.qc.sdk.izat.service_mask=0x0 
+    ro.qc.sdk.izat.service_mask=0x0
 
 #DNS
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -112,6 +112,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.sys.fw.bservice_enable=true \
     ro.vendor.qti.am.reschedule_service=true
+    ro.config.avoid_gfx_accel=true
 
 # DEX
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -122,8 +123,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.max_starting_bg=8 \
     ro.core_ctl_min_cpu=0 \
-    ro.core_ctl_max_cpu=4 \
-    ro.min_freq_0=200000
+    ro.core_ctl_max_cpu=4
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
