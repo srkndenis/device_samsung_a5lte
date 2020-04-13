@@ -175,7 +175,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.lmk.use_minfree_levels=true \
     ro.lmk.enhance_batch_kill=true \
     ro.lmk.vmpressure_file_min=80640
-    ro.vendor.qti.config.zram=true
 
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
