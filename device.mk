@@ -370,6 +370,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.a5
 
+# Disable FaceUnlock
+TARGET_DISABLE_ALTERNATIVE_FACE_UNLOCK := true
+TARGET_FACE_UNLOCK_SUPPORTED := false
+
 # Shipping API level (for CTS backward compatibility)
 PRODUCT_SHIPPING_API_LEVEL := 19
 
