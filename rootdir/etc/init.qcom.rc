@@ -202,6 +202,9 @@ on boot
     chown system radio /sys/class/sec/sec_key/wakeup_keys
     write /sys/class/sec/sec_key/wakeup_keys 116,172
 
+    # Permission for HALL IC
+    chown system system /sys/class/sec/sec_key/hall_detect
+
     # Tap to wake
     chown system system /sys/class/sec/sec_touchscreen/ts_control
     chown system system /sys/class/sec/sec_touchscreen/wake_gesture
