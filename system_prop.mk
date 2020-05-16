@@ -187,3 +187,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.usb.id.ums=300F \
     ro.usb.id.ums_adb=3010 \
     ro.usb.vid=2a96
+
+# Fastbootd
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.fastbootd.available=true
