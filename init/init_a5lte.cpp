@@ -32,12 +32,53 @@
 #include <android-base/file.h>
 #include <android-base/properties.h>
 #include <android-base/logging.h>
+#include <android-base/strings.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
 
+#define SIMSLOT_FILE "/proc/simslot_count"
+#define SERIAL_NUMBER_FILE "/efs/FactoryApp/serial_no"
+#define BT_ADDR_FILE "/efs/bluetooth/bt_addr"
+
 using android::base::GetProperty;
+using android::base::ReadFileToString;
+using android::base::Trim;
 using android::init::property_set;
+
+__attribute__ ((weak))
+void init_target_properties()
+{
+}
+
+static void init_alarm_boot_properties()
+{
+    char const *boot_reason_file = "/proc/sys/kernel/boot_reason";
+    std::string boot_reason;
+    std::string tmp = GetProperty("ro.boot.alarmboot","");
+
+    if (ReadFileToString(boot_reason_file, &boot_reason)) {
+        /*
+         * Setup ro.alarm_boot value to true when it is RTC triggered boot up
+         * For existing PMIC chips, the following mapping applies
+         * for the value of boot_reason:
+         *
+         * 0 -> unknown
+         * 1 -> hard reset
+         * 2 -> sudden momentary power loss (SMPL)
+         * 3 -> real time clock (RTC)
+         * 4 -> DC charger inserted
+         * 5 -> USB charger insertd
+         * 6 -> PON1 pin toggled (for secondary PMICs)
+         * 7 -> CBLPWR_N pin toggled (for external power supply)
+         * 8 -> KPDPWR_N pin toggled (power key pressed)
+         */
+        if (Trim(boot_reason) == "3" || tmp == "true")
+            property_set("ro.alarm_boot", "true");
+        else
+            property_set("ro.alarm_boot", "false");
+    }
+}
 
 void property_override(const std::string& name, const std::string& value)
 {
@@ -68,11 +109,29 @@ void init_dsds() {
     property_set("persist.radio.multisim.config", "dsds");
 }
 
+void set_target_properties(const char *device, const char *model)
+{
+	char const *serial_number_file = SERIAL_NUMBER_FILE;
+	std::string serial_number;
+
+	char const *bt_addr_file = BT_ADDR_FILE;
+	std::string bt_address;
+
+	if (ReadFileToString(serial_number_file, &serial_number)) {
+		serial_number = Trim(serial_number);
+		property_override("ro.serialno", serial_number.c_str());
+	}
+
+	if (ReadFileToString(bt_addr_file, &bt_address)) {
+		bt_address = Trim(bt_address);
+		property_override("persist.service.bdroid.bdaddr", bt_address.c_str());
+        property_override("ro.boot.btmacaddr", bt_address.c_str());
+	}
+
+}
+
 void vendor_load_properties()
 {
-    // Init a dummy BT MAC address, will be overwritten later
-    property_set("ro.boot.btmacaddr", "00:00:00:00:00:00");
-
     std::string bootloader = GetProperty("ro.bootloader","");
 
     if (bootloader.find("A500FU") == 0) {
@@ -157,6 +216,11 @@ void vendor_load_properties()
         property_override_triple("ro.product.device", "ro.product.system.device", "ro.product.vendor.device", "a5ltezt");
     }
 
+    // Init a dummy BT MAC address, will be overwritten later
+    property_set("ro.boot.btmacaddr", "00:00:00:00:00:00");
+    init_target_properties();
+    init_alarm_boot_properties();
+	
     std::string device = GetProperty("ro.product.device", "");
     LOG(ERROR) << "Found bootloader id %s setting build properties for %s device\n" << bootloader.c_str() << device.c_str();
 }
