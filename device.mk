@@ -314,7 +314,10 @@ PRODUCT_COPY_FILES += \
 
 # Radio
 PRODUCT_PACKAGES += \
-    libsecnativefeature
+    libsecnativefeature \
+    libcnefeatureconfig \
+    librmnetctl \
+    libxml2
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \

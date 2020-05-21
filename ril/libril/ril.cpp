@@ -21,7 +21,6 @@
 #include <hardware_legacy/power.h>
 #include <telephony/ril.h>
 #include <telephony/ril_cdma_sms.h>
-#include <telephony/samsung_ril.h>
 #include <cutils/sockets.h>
 #include <cutils/jstring.h>
 #include <hwbinder/ProcessState.h>
@@ -51,6 +50,7 @@
 #include <RilSapSocket.h>
 #include <ril_service.h>
 #include <sap_service.h>
+#include <samsung_ril.h>
 
 extern "C" void
 RIL_onRequestComplete(RIL_Token t, RIL_Errno e, void *response, size_t responselen);
@@ -194,11 +194,11 @@ static UserCallbackInfo * internalRequestTimedCallback
 
 /** Index == requestNumber */
 static CommandInfo s_commands[] = {
-#include <ril_commands.h>
+#include "ril_commands.h"
 };
 
 static UnsolResponseInfo s_unsolResponses[] = {
-#include <ril_unsol_commands.h>
+#include "ril_unsol_commands.h"
 };
 
 char * RIL_getServiceName() {
@@ -234,11 +234,6 @@ addRequestToList(int serial, int slotId, int request) {
     }
 #endif
 #endif
-
-    if (request >= (int)NUM_ELEMS(s_commands)) {
-        RLOGE("Request %s not supported", requestToString(request));
-        return NULL;
-    }
 
     pRI = (RequestInfo *)calloc(1, sizeof(RequestInfo));
     if (pRI == NULL) {
