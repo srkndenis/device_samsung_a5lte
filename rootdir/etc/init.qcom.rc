@@ -66,9 +66,6 @@ on post-fs-data
     mkdir /data/vendor/wifi/wpa 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
 
-    # Create folder for time-services
-    mkdir /data/vendor/time 0770 system system
-
     # Tombstones
     mkdir /data/tombstones/modem 0771 system system
     mkdir /data/tombstones/lpass 0771 system system
@@ -78,9 +75,6 @@ on post-fs-data
     # RIL LINK
     rm /data/data/com.android.providers.telephony/databases
     rm /data/data/com.android.providers.telephony/shared_prefs
-
-    # Start move time data to /data/vendor once post-fs-data done
-    start move_time_data
 
     setprop vold.post_fs_data_done 1
 
@@ -97,7 +91,7 @@ on early-boot
     write /sys/bus/msm_subsys/devices/subsys2/restart_level "related"
 
     write /sys/kernel/boot_adsp/boot 1
-	
+    
     exec u:r:qti_init_shell:s0 -- /vendor/bin/init.qcom.early_boot.sh
 
     start vendor.qseecomd
@@ -397,13 +391,6 @@ service thermal-engine /system/vendor/bin/thermal-engine
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service time_daemon /system/vendor/bin/time_daemon
-    class main
-    user system
-    group system
-    capabilities SYS_TIME
-    writepid /dev/cpuset/system-background/tasks
-
 service ppd /system/vendor/bin/mm-pp-daemon
     class late_start
     disabled
@@ -467,10 +454,3 @@ on property:sys.boot_completed=1
 
 on property:apexd.status=ready
     mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
-
-service move_time_data /system/vendor/bin/init.move_time_data.sh
-    class main
-    user system
-    group system
-    disabled
-    oneshot

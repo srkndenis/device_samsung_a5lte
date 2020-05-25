@@ -211,8 +211,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     init.qcom.bt.sh \
-    init.boot_boost.sh \
-    init.move_time_data.sh
+    init.boot_boost.sh
 
 # Lights
 PRODUCT_PACKAGES += \
