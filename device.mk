@@ -48,7 +48,6 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.usb.default \
     libaudio-resampler \
-    tinymix \
     tinypcminfo \
     tinyplay \
     tinycap \
