@@ -370,6 +370,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.a5
 
+# TimeKeep
+PRODUCT_PACKAGES += \
+    timekeep \
+    TimeKeep
+
 # Disable FaceUnlock
 TARGET_DISABLE_ALTERNATIVE_FACE_UNLOCK := true
 TARGET_FACE_UNLOCK_SUPPORTED := false

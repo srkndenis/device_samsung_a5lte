@@ -6,3 +6,4 @@ qualcomm.bt.				u:object_r:bluetooth_prop:s0
 
 # RIL
 persist.ril.				u:object_r:system_radio_prop:s0
+persist.vendor.timeadjust           	u:object_r:vendor_timekeep_prop:s0
