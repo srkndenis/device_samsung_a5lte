@@ -137,7 +137,7 @@ PRODUCT_PACKAGES += \
 
 # Doze
 PRODUCT_PACKAGES += \
-    CustomDoze
+    SamsungDoze
 
 # Dirac
 PRODUCT_PACKAGES += \
