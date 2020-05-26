@@ -44,9 +44,6 @@ on fs
 
     restorecon_recursive /persist
 
-on post-fs
-    start qseecomd
-
 on post-fs-data
     # Create folder for mm-qcamera-daemon
     mkdir /data/camera 0770 media camera
@@ -375,7 +372,7 @@ on property:sys.boot_completed=1
     write /sys/class/touch_screen/enabled true
     write /sys/class/touch_screen/control auto
 
-service qseecomd /system/vendor/bin/qseecomd
+service vendor.qseecomd /system/vendor/bin/qseecomd
     class core
     user root
     group root
