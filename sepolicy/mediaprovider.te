@@ -1,2 +1,0 @@
-allow mediaprovider cache_recovery_file:dir { open read };
-allow mediaprovider mnt_media_rw_file:dir getattr;

@@ -1,3 +1,6 @@
-allow kernel self:capability { chown dac_read_search };
-allow kernel exfat:dir search;
+#============= kernel ==============
+allow kernel self:capability dac_override;
+allow kernel sysfs:file { open read };
+allow kernel untrusted_app:fd use;
+allow kernel vfat:dir search;
 

@@ -1,5 +1,7 @@
-allow system_server sensors_device:chr_file rw_file_perms;
+#============= system_server ==============
+allow system_server adb_data_file:dir { getattr open read search };
+allow system_server adb_data_file:file { getattr open read };
 allow system_server efs_file:dir search;
-allow system_server sysfs_vibeamp:file write;
-r_dir_file(system_server, persist_file)
-allow system_server alarm_device:chr_file rw_file_perms;
+allow system_server init:binder call;
+allow system_server vfat:dir { open read };
+
