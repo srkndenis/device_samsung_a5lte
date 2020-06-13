@@ -101,8 +101,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=1 \
     vidc.enc.narrow.searchrange=1
 
-# Memory optimizations
+# Optimizations
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.device_config.runtime_native.usap_pool_enabled=true \
+    persist.device_config.runtime_native.usap_pool_size_max=5 \
     ro.vendor.qti.sys.fw.bservice_enable=true \
     ro.vendor.qti.am.reschedule_service=true \
     ro.config.avoid_gfx_accel=true
