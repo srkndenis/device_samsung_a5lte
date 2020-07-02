@@ -94,11 +94,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dhcp.wlan0.dns1=1.1.1.1 \
     dhcp.wlan0.dns2=1.0.0.1
 
-# Other
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    ro.oem_unlock_supported=0 \
-#    ro.frp.pst=/dev/block/bootdevice/by-name/hidden
-
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.omx_default_rank.sw-audio=1 \
@@ -109,7 +104,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Memory optimizations
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.sys.fw.bservice_enable=true \
-    ro.vendor.qti.am.reschedule_service=true
+    ro.vendor.qti.am.reschedule_service=true \
     ro.config.avoid_gfx_accel=true
 
 # DEX
