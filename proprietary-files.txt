@@ -129,17 +129,17 @@ vendor/lib/libizat_core.so|8a948e4f2aa38463050c6399f04ecb38564689d6
 vendor/lib/liblbs_core.so|10caf0d54768114cd471c33a1e2dc6385d3c7707
 
 # Graphics - from crackling
-vendor/lib/egl/eglsubAndroid.so|b164a3a31ec30498babb25f731e0a8225be8d0aa
+vendor/lib/egl/eglsubAndroid.so|a80ffa441af58222dc43ba2a15fb2d4f2a9fae59
 vendor/lib/egl/eglSubDriverAndroid.so|6f5ae2f50bae4917173bc1f23eedbb932e068994
 vendor/lib/egl/libEGL_adreno.so|c30e4b0741e48c424aea23bf74dbf0e8b3a99369
 vendor/lib/egl/libESXEGL_adreno.so|7fb1078f65d5ccec000e90466e347308d7faa98b
 vendor/lib/egl/libESXGLESv1_CM_adreno.so|817a1ecda830c46c170b2733b2fbc26f97b04180
-vendor/lib/egl/libESXGLESv2_adreno.so|61ba345a1eff7ef153269dd88399e32950173d0f
+vendor/lib/egl/libESXGLESv2_adreno.so|377452ed2d1b0655d7eca4a03fb763d7043aba30
 vendor/lib/egl/libGLESv1_CM_adreno.so|629e554170807f47a6790d559952ede06df0c9a6
 vendor/lib/egl/libGLESv2_adreno.so|70c7d8a44042fd0a9280c8ed2e9e738c3f14b0c3
 vendor/lib/egl/libq3dtools_adreno.so|4c3a394cd397e05b0794aa1bb16531da4c03855d
 vendor/lib/egl/libQTapGLES.so|900229ff94bbc44722d0df2a685b8ad2fbf1c51e
-vendor/lib/egl/libRBEGL_adreno.so|8c33769c191c889179f76663b8be63d300d26606
+vendor/lib/egl/libRBEGL_adreno.so|ce9a65968612e852d01f0bd6e1743dce015db7d1
 vendor/lib/egl/libRBGLESv1_CM_adreno.so|8c8491f0f4decb8658af866e32fc083322095f20
 vendor/lib/egl/libRBGLESv2_adreno.so|4bd77c04fc435de9d198da0233513dda6e557dab
 vendor/lib/libadreno_utils.so|522db7791ef53fc0747fc66274e3d9d01ac7b406
@@ -150,9 +150,6 @@ vendor/lib/libgsl.so|252cd2ec1006268a45df66bdce947e647d1efe5b
 vendor/lib/libllvm-glnext.so|2e5785200004df231403074c0f6d7d87bf395745
 vendor/lib/libllvm-qcom.so|77f2a0adf9c36291a02055be3fcd1cf5fa82a113
 vendor/lib/libOpenCL.so|9c3f63df298c155a526d075c9d2643d01b59f98a
-vendor/lib/librs_adreno.so|7f0fe9802d2bd832b98848d7436ae1aafbe52221
-vendor/lib/librs_adreno_sha1.so|3289659eb1307377b20fb33ca4b8d42e15532612
-vendor/lib/libRSDriver_adreno.so|2c9d23e4555f76c1aa28eb5aea2fa919081a8654
 vendor/lib/libsc-a3xx.so|a03fc9f0c929cb4adf013f8a463cfbef68d48090
 vendor/lib/libscale.so|972cbd87794b4ce0a5c23db946acbafd4cd6d073
 
@@ -160,23 +157,28 @@ vendor/lib/libscale.so|972cbd87794b4ce0a5c23db946acbafd4cd6d073
 etc/firmware/a300_pfp.fw:vendor/firmware/a300_pfp.fw
 etc/firmware/a300_pm4.fw:vendor/firmware/a300_pm4.fw
 
-# Media
-vendor/lib/libOmxAacDec.so
-vendor/lib/libOmxEvrcDec.so
-vendor/lib/libOmxQcelp13Dec.so
+# Graphics RenderScript - bullhead OPR4.170623.006
+vendor/lib/libRSDriver_adreno.so|ee3386248adfa7d1a8c1107e051bcbbd3e8df0c1
+vendor/lib/librs_adreno.so|bb1d5cb84f14ed18fcbfb4815692cb196e44f180
+vendor/lib/librs_adreno_sha1.so|be8a817743950dac6e22b50cbd9657c2d35c35f2
 
-# Perf
-vendor/bin/perfd
-vendor/lib/libqti-perfd-client.so
+# Media - from jalebi
+vendor/lib/libOmxAacDec.so|7125dc53aaee56170b269278865b4ef3c4c8c61b
+vendor/lib/libOmxEvrcDec.so|9d7ebe0f32b84f131f28aab38ce90fb65ac1c87d
+vendor/lib/libOmxQcelp13Dec.so|b33a772d50668ac636b5db6a2d22d31f74ca5b2e
 
-# Postprocessing
-bin/mm-pp-daemon:vendor/bin/mm-pp-daemon
-vendor/lib/libdisp-aba.so
-vendor/lib/libmm-abl.so
-vendor/lib/libmm-abl-oem.so
-vendor/lib/libmm-als.so
-vendor/lib/libmm-disp-apis.so
-vendor/lib/libmm-qdcm.so
+# Perf - from jalebi
+vendor/bin/perfd|5e31de336247378b0674b4d65494567ab76c190c
+vendor/lib/libqti-perfd-client.so|90b2007264bcda7fc706fd55becdea4c6b999233
+
+# Postprocessing - from jalebi
+bin/mm-pp-daemon:vendor/bin/mm-pp-daemon|56777bd6e5023b2d39efa3a3a7df11af3a06aa73
+vendor/lib/libdisp-aba.so|4445ff1e090b0122077823576ec4a38a3e8e2ae6
+vendor/lib/libmm-abl.so|a88a93ca967246b0c21df3ba6889b4b1e2a284ff
+vendor/lib/libmm-abl-oem.so|5940ead47b7ef85315d0ca0ad7ba126d2ac10b06
+vendor/lib/libmm-als.so|7ca49d1a2e9139182d4069b1f305312966da9983
+vendor/lib/libmm-disp-apis.so|342252fd53b5813cdd47a2bc01c91d62cdb21f1b
+vendor/lib/libmm-qdcm.so|00413d3c2e3b6a0b43f1a315af33592bec1d952c
 
 # Radio
 vendor/bin/qmuxd
@@ -222,11 +224,8 @@ vendor/bin/thermal-engine|5d7e03971fdc7f2e16c84a72430734bcb7328e82
 vendor/lib/libthermalclient.so
 vendor/lib/libthermalioctl.so
 
-# Time services
--app/TimeService/TimeService.apk:vendor/app/TimeService/TimeService.apk
-bin/time_daemon:vendor/bin/time_daemon
--vendor/lib/libtime_genoff.so
-vendor/lib/libTimeService.so
+# Time services - from jalebi
+-vendor/lib/libtime_genoff.so|2f98702ccced493fd8d94b3eff099f4b53563612
 
 # Widevine - from angler - OPR6.170623.017 factory image
 vendor/lib/mediadrm/libwvdrmengine.so|66ba66d047044f92eb0eada1faf6a5799ded90ab
