@@ -67,10 +67,6 @@ on fs
     start boot_lc_kernel
     start boot_lc_crash
 
-on fs
-    # GnssConfiguration doesn't actually look at gps.conf, just the debug file
-    mount none /system/etc/gps.conf /system/etc/gps_debug.conf bind
-
 on property:sys.boot_completed=1
     stop boot_lc
     stop boot_lc_crash
