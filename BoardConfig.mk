@@ -243,6 +243,7 @@ TARGET_LD_SHIM_LIBS := \
     /system/lib/libmmjpeg_interface.so|libboringssl-compat.so \
     /system/lib/hw/camera.vendor.msm8916.so|libcamera_shim.so \
     /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so \
+    /system/vendor/lib/mediadrm/libwvdrmengine.so|libprotobuf_shim.so \
 	/system/vendor/lib/libsec-ril.so|/vendor/lib/libcutils_shim.so
 
 #Telephone

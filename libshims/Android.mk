@@ -16,42 +16,42 @@
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
-
 LOCAL_SRC_FILES := \
     flp/flp.c
 
 LOCAL_MODULE := libshims_flp
 LOCAL_MODULE_TAGS := optional
 LOCAL_VENDOR_MODULE := true
-
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
-
 LOCAL_SRC_FILES := \
     get_process_name/get_process_name.c
 
 LOCAL_MODULE := libshims_get_process_name
 LOCAL_MODULE_TAGS := optional
 LOCAL_VENDOR_MODULE := true
-
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
-
 LOCAL_SRC_FILES := camera_shim.c
 LOCAL_MODULE := libcamera_shim
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
-
 LOCAL_SRC_FILES := libshim_binder/libbinder_interface.cpp
 LOCAL_MODULE := libshim_binder
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_VENDOR_MODULE := true
 LOCAL_SHARED_LIBRARIES := libbinder libutils
+include $(BUILD_SHARED_LIBRARY)
 
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := libprotobuf_shim/libprotobuf_shim.cpp
+LOCAL_SHARED_LIBRARIES := liblog
+LOCAL_MODULE := libprotobuf_shim
+LOCAL_MODULE_TAGS := optional
+LOCAL_VENDOR_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
