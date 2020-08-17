@@ -20,10 +20,7 @@
 <carrier_config_list>
     <carrier_config>
         <boolean name="apn_expand_bool" value="true" />
-        <boolean name="world_phone_bool" value="true" />
         <boolean name="allow_adding_apns_bool" value="true" />
-        <boolean name="show_cdma_choices_bool" value="true" />
-        <boolean name="show_apn_setting_cdma_bool" value="true" />
 
         <string name="gps.a_glonass_pos_protocol_select">15</string>
         <string name="gps.gps_lock">0</string>
