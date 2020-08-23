@@ -390,6 +390,10 @@ PRODUCT_SHIPPING_API_LEVEL := 19
 # Setting vendor SPL
 VENDOR_SECURITY_PATCH = "2017-08-01"
 
+# Shims
+PRODUCT_PACKAGES += \
+    libshim_binder
+
 # Wi-Fi
 PRODUCT_PACKAGES += \
     libwcnss_qmi \

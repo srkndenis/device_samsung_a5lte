@@ -45,3 +45,13 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 
 include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := libshim_binder/libbinder_interface.cpp
+LOCAL_MODULE := libshim_binder
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_VENDOR_MODULE := true
+LOCAL_SHARED_LIBRARIES := libbinder libutils
+
+include $(BUILD_SHARED_LIBRARY)
