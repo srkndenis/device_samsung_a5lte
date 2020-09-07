@@ -39,3 +39,11 @@ TARGET_OTA_ASSERT_DEVICE := a5ulte,a5ultexx,a5lte,a5ltexx,a53gxx,a53g,a5ltedd,a5
 
 # Fingerprint
 BUILD_FINGERPRINT := samsung/a5ltexx/a5lte:6.0.1/MMB29M/A500FXXU1CPH2:user/release-keys
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=a5ltexx \
+    TARGET_DEVICE="a5ltexx"
+    PRIVATE_BUILD_DESC="a5ltexx-user 6.0.1 MMB29M A500FXXU1CPH2 release-keys"
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.havoc.maintainer=srkndenis

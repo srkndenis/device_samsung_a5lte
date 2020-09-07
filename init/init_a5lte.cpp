@@ -142,7 +142,7 @@ void vendor_load_properties()
         property_override_triple("ro.product.device", "ro.product.system.device", "ro.product.vendor.device", "a5ulte");
     } else if (bootloader.find("A500F") == 0) {
         /* SM-A500F */
-        property_override_triple("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/a5ltexx/a5lte:6.0.1/MMB29M/A500FXXU1CRH2:user/release-keys");
+        property_override_triple("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/a5ltexx/a5lte:6.0.1/MMB29M/A500FXXU1CPH2:user/release-keys");
         property_override("ro.build.description", "a5ltexx-user 6.0.1 MMB29M A500FXXU1CRH2 release-keys");
         property_override_triple("ro.product.model", "ro.product.system.model", "ro.product.vendor.model", "SM-A500F");
         property_override_triple("ro.product.device", "ro.product.system.device", "ro.product.vendor.device", "a5lte");
