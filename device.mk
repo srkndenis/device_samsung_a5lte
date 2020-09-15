@@ -386,6 +386,11 @@ PRODUCT_PACKAGES += \
     timekeep \
     TimeKeep
 
+# Health
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.1-impl \
+    android.hardware.health@2.1-service
+
 # Disable FaceUnlock
 TARGET_DISABLE_ALTERNATIVE_FACE_UNLOCK := true
 TARGET_FACE_UNLOCK_SUPPORTED := false
