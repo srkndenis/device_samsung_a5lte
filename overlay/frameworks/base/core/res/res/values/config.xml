@@ -393,6 +393,7 @@
         <item>com.google.android.gms/com.google.android.gms.nearby.discovery.service.DiscoveryService</item>
     </string-array>
 
+<<<<<<< HEAD
     <!-- Whether device needs to wait for Qualcomm MPCTL service to start
          before setting power profiles on boot. -->
     <bool name="config_waitForMpctlOnBoot">true</bool>
@@ -440,5 +441,7 @@
 
     <!-- enable doze powersaving mode -->
     <bool name="config_enableAutoPowerModes">true</bool>
+
+    <bool name="config_wifi_ap_randomization_supported">false</bool>
 
 </resources>
