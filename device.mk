@@ -140,7 +140,7 @@ PRODUCT_PACKAGES += \
     product_charger_res_images
 
 # Doze
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     SamsungDoze
 
 # Dirac
