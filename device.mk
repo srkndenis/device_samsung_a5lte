@@ -368,7 +368,9 @@ PRODUCT_PACKAGES += \
 # HIDL vendor support
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
-    android.hidl.manager@1.0
+    android.hidl.manager@1.0 \
+    libhwbinder \
+    libhwbinder.vendor
 
 # Touch issue workaround
 PRODUCT_PACKAGES += \
