@@ -44,7 +44,7 @@
 using android::base::GetProperty;
 using android::base::ReadFileToString;
 using android::base::Trim;
-using android::init::property_set;
+using android::base::SetProperty;
 
 __attribute__ ((weak))
 void init_target_properties()
@@ -74,9 +74,9 @@ static void init_alarm_boot_properties()
          * 8 -> KPDPWR_N pin toggled (power key pressed)
          */
         if (Trim(boot_reason) == "3" || tmp == "true")
-            property_set("ro.alarm_boot", "true");
+            SetProperty("ro.alarm_boot", "true");
         else
-            property_set("ro.alarm_boot", "false");
+            SetProperty("ro.alarm_boot", "false");
     }
 }
 
@@ -90,7 +90,7 @@ void property_override(const std::string& name, const std::string& value)
     else {
         int rc = __system_property_add(name.c_str(), name.size(), value.c_str(), valuelen);
         if (rc < 0) {
-            LOG(ERROR) << "property_set(\"" << name << "\", \"" << value << "\") failed: "
+            LOG(ERROR) << "SetProperty(\"" << name << "\", \"" << value << "\") failed: "
                        << "__system_property_add failed";
         }
     }
@@ -104,9 +104,9 @@ void property_override_triple(const std::string& product_prop, const std::string
 }
 
 void init_dsds() {
-    property_set("ro.multisim.set_audio_params", "true");
-    property_set("ro.multisim.simslotcount", "2");
-    property_set("persist.radio.multisim.config", "dsds");
+    SetProperty("ro.multisim.set_audio_params", "true");
+    SetProperty("ro.multisim.simslotcount", "2");
+    SetProperty("persist.radio.multisim.config", "dsds");
 }
 
 void set_target_properties(const char *device, const char *model)
@@ -217,7 +217,7 @@ void vendor_load_properties()
     }
 
     // Init a dummy BT MAC address, will be overwritten later
-    property_set("ro.boot.btmacaddr", "00:00:00:00:00:00");
+    SetProperty("ro.boot.btmacaddr", "00:00:00:00:00:00");
     init_target_properties();
     init_alarm_boot_properties();
 	
