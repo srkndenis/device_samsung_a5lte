@@ -118,8 +118,8 @@ PRODUCT_PACKAGES += \
     libboringssl-compat
 
 # Fastbootd
-PRODUCT_PACKAGES += \
-    fastbootd
+#PRODUCT_PACKAGES += \
+#    fastbootd
 
 # Camera
 PRODUCT_PACKAGES += \
