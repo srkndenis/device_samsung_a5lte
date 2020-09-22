@@ -238,7 +238,8 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libizat_core.so|libshims_get_process_name.so \
     /system/lib/libmmjpeg_interface.so|libboringssl-compat.so \
     /system/lib/hw/camera.vendor.msm8916.so|libcamera_shim.so \
-    /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so
+    /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so \
+	/system/vendor/lib/libsec-ril.so|/vendor/lib/libcutils_shim.so
 
 #Telephone
 TARGET_USES_ALTERNATIVE_MANUAL_NETWORK_SELECT := true

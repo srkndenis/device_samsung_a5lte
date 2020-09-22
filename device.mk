@@ -403,7 +403,8 @@ VENDOR_SECURITY_PATCH = "2017-08-01"
 
 # Shims
 PRODUCT_PACKAGES += \
-    libshim_binder
+    libshim_binder \
+    libcutils_shim
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
