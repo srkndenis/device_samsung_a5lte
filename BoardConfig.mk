@@ -183,6 +183,9 @@ TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
 KERNEL_TOOLCHAIN := $(PWD)/prebuilts/gcc/linux-x86/arm/arm-eabi-7.2/bin
 KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 
+# Kernel memfd
+TARGET_HAS_MEMFD_BACKPORT := true
+
 # Manifest
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
