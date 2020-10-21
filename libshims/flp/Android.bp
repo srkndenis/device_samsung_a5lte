@@ -1,0 +1,11 @@
+cc_library_shared {
+
+    srcs: ["flp.c"],
+
+    proprietary: true,
+
+    name: "libshims_flp",
+
+    compile_multilib: "32",
+
+}

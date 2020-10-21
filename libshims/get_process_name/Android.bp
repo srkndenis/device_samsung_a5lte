@@ -1,0 +1,11 @@
+cc_library_shared {
+
+    srcs: ["get_process_name.c"],
+
+    proprietary: true,
+
+    name: "libshims_get_process_name",
+
+    compile_multilib: "32",
+
+}
