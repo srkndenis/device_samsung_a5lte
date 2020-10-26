@@ -1,6 +1,6 @@
 cc_library_shared {
 
-    srcs: ["libprotobuf_shim.cpp"],
+    srcs: ["libdrm_shim.cpp"],
 
     shared_libs: [
         "liblog",
@@ -8,7 +8,7 @@ cc_library_shared {
 
     proprietary: true,
 
-    name: "libprotobuf_shim",
+    name: "libdrm_shim",
 
     compile_multilib: "32",
 
