@@ -185,4 +185,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Fastbootd
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.fastbootd.available=true
+    ro.fastbootd.available=true
+
+# Zram
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.qti.config.zram=true
