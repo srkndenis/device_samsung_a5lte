@@ -15,6 +15,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.dedicated.device.for.voip=true \
     vendor.voice.path.for.pcm.voip=false \
     av.offload.enable=true \
+    persist.audio.dirac.speaker=true \
     persist.vendor.audio.fluence.speaker=true \
     persist.vendor.audio.fluence.voicecall=true \
     persist.vendor.audio.fluence.voicerec=false \
