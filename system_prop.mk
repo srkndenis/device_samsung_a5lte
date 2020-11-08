@@ -3,17 +3,25 @@ PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
     audio.deep_buffer.media=true \
     audio.offload.min.duration.secs=30 \
+    audio.offload.buffer.size.kb=32 \
+    audio.offload.pcm.16bit.enable=true \
+    audio.offload.pcm.24bit.enable=true \
     audio.offload.video=true \
-    persist.audio.dirac.speaker=true \
     vendor.audio.av.streaming.offload.enable=true \
     vendor.audio.offload.buffer.size.kb=64 \
-    vendor.audio.offload.gapless.enabled=true \
+    vendor.audio.offload.gapless.enabled=false \
+    vendor.audio.offload.multiple.enabled=false \
     vendor.audio_hal.period_size=192 \
-    vendor.voice.path.for.pcm.voip=true \
-    ro.vendor.audio.sdk.fluencetype=fluence \
+    vendor.dedicated.device.for.voip=true \
+    vendor.voice.path.for.pcm.voip=false \
+    av.offload.enable=true \
+    persist.vendor.audio.fluence.speaker=true \
     persist.vendor.audio.fluence.voicecall=true \
     persist.vendor.audio.fluence.voicerec=false \
-    persist.vendor.audio.fluence.speaker=false
+    ro.vendor.audio.sdk.fluencetype=fluence \
+    persist.vendor.audio.fluence.mode=endfire \
+    ro.config.media_vol_steps=25 \
+    ro.config.vc_call_vol_steps=7
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -139,7 +147,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnGsmDevice=1 \
     ro.ril.telephony.mqanelements=6 \
     ro.telephony.call_ring.multiple=0 \
-    ro.telephony.ril.config=simactivation
+    ro.telephony.ril.config=simactivation \
+    ro.multisim.audio_follow_default_sim=false
 
 # NITZ
 PRODUCT_PROPERTY_OVERRIDES += \
