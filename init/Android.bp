@@ -1,13 +1,14 @@
 cc_library_static {
     name: "libinit_a5lte",
     recovery_available: true,
-
+    srcs: ["init_a5lte.cpp"],
     cpp_std: "c++17",
     include_dirs: [
         "system/core/base/include",
         "system/core/init",
     ],
 
-    srcs: ["init_a5lte.cpp"],
-    static_libs: ["libbase"],
+    shared_libs: [
+        "libbase",
+    ],
 }
