@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Christopher N. Hesse <raymanfx@gmail.com>
+ * Copyright (C) 2019-2020 Vladimir Bely <vlwwwwww@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@
 #include <hardware/audio_amplifier.h>
 #include <voice.h>
 #include <msm8916/platform.h>
+#include <system/audio.h>
 
 #include "tfa.h"
 
@@ -48,34 +49,24 @@ typedef struct amp_device {
 
 static amp_device_t *amp_dev = NULL;
 
-/*
- * Returns the internal TFA mode appropriate for the device.
- *
- * @param snd_device The current sound device.
- *
- * @return tfa_mode_t identifying the internal amplifier mode.
- */
 static tfa_mode_t classify_snd_device(uint32_t snd_device) {
-    tfa_mode_t mode = Audio_Mode_None;
+    tfa_mode_t mode = Audio_Mode_Music_Normal;
 
     switch (snd_device) {
-         case SND_DEVICE_OUT_SPEAKER:
-         case SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES:
+        case SND_DEVICE_OUT_SPEAKER:
             mode = Audio_Mode_Music_Normal;
             break;
         case SND_DEVICE_OUT_VOICE_SPEAKER:
-            mode = Audio_Mode_Voice;
+            mode = Audio_Mode_Voice_NB;
             break;
         default:
-           break;
+            mode = Audio_Mode_Max; //zero mode - amp off
+            break;
     }
 
     return mode;
 }
 
-/*
- * Hook into amplifier HAL
- */
 static int amp_enable_output_devices(amplifier_device_t *device,
         uint32_t devices, bool enable)
 {
@@ -85,34 +76,12 @@ static int amp_enable_output_devices(amplifier_device_t *device,
 
     ALOGV("%s: devices=0x%x, enable=%d, tfa_mode=%d", __func__, devices, enable, tfa_mode);
 
-    if (tfa_mode == Audio_Mode_None) {
-        return 0;
-    }
+    //mode 0 - default speaker
+    //mode 2 - incall
 
-    if (enable) {
-        dev->refcount[tfa_mode]++;
-    } else if (!enable && dev->refcount[tfa_mode] > 0) {
-        dev->refcount[tfa_mode]--;
-    }
-
-    ALOGV("%s: enable=%d, dev->refcount=%d, amp_state=%d", __func__, enable,
-          dev->refcount[tfa_mode], dev->amp_state);
-
-    if (enable && dev->amp_state == AMP_STATE_DISABLED &&  dev->refcount[tfa_mode] == 1) {
-        rc = tfa_power(dev->tfa_dev, true);
-        if (rc == 0) {
-            dev->amp_state = AMP_STATE_ENABLED;
-        }
-        ALOGV("%s: tfa_power(true) with rc=%d", __func__, rc);
-    } else if (!enable && dev->amp_state == AMP_STATE_ENABLED && dev->refcount[tfa_mode] == 0) {
-        rc = tfa_power(dev->tfa_dev, false);
-        if (rc == 0) {
-            dev->amp_state = AMP_STATE_DISABLED;
-        }
-        ALOGV("%s: tfa_power(false) with rc=%d", __func__, rc);
-    }
-
-    // TODO: Distinguish between tfa modes
+    //mode set
+    if (tfa_mode!=Audio_Mode_Max)
+        tfa_power(dev->tfa_dev, enable);
 
     return rc;
 }
@@ -120,6 +89,8 @@ static int amp_enable_output_devices(amplifier_device_t *device,
 static int amp_set_mode(amplifier_device_t *device, audio_mode_t mode)
 {
     amp_device_t *dev = (amp_device_t *) device;
+
+    ALOGV("%s: set_mode=%d", __func__, mode);
 
     dev->current_mode = mode;
 
@@ -202,8 +173,8 @@ amplifier_module_t HAL_MODULE_INFO_SYM = {
         .module_api_version = AMPLIFIER_MODULE_API_VERSION_0_1,
         .hal_api_version = HARDWARE_HAL_API_VERSION,
         .id = AMPLIFIER_HARDWARE_MODULE_ID,
-        .name = "Samsung TFA9896 amplifier HAL",
-        .author = "Christopher N. Hesse",
+        .name = "Samsung Galaxy A3 TFA9895 amplifier HAL",
+        .author = "Vladimir Bely <vlwwwwww@gmail.com>",
         .methods = &hal_module_methods,
     },
 };

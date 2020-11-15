@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Christopher N. Hesse <raymanfx@gmail.com>
+ * Copyright (C) 2019 Vladimir Bely <vlwwwwww@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,59 +21,55 @@
 #include <stdatomic.h>
 #include <stdbool.h>
 
-#define TFA_LIBRARY_PATH "/system/lib/libtfa9895.so"
-#define I2S_MIXER_CTL "QUAT_MI2S_RX Audio Mixer MultiMedia1"
-
-/*
- * Amplifier audio modes for different usecases.
- */
 typedef enum {
-    Audio_Mode_None = -1,
-    Audio_Mode_Music_Normal,
-    Audio_Mode_Voice,
-    Audio_Mode_Max
+    Audio_Mode_Music_Normal=0,
+    Audio_Mode_Voice_NB,
+    Audio_Mode_Max,
 } tfa_mode_t;
 
-/*
- * It doesn't really matter what this is, apparently we just need a continuous
- * chunk of memory...
- */
 typedef struct {
-    volatile int a1;
-    volatile unsigned char a2[500];
-} __attribute__((packed)) tfa_handle_t;
+    bool flag_power;
+    bool flag_pll_lock;
+    bool flag_otp_ok;
+    bool flag_ovp_ok;
+    bool flag_uvp_ok;
+    bool flag_ocp_alarm;
+    bool flag_clocks_stable;
+    bool flag_clip;
+    bool flag_mtp_busy;
+    bool flag_power_ok_bst;
+    bool flag_cf_spk_error;
+    bool flag_cold_started;
+    bool flag_sws;
+    bool flag_watchdog_reset;
+    bool flag_enable_amp;
+    bool flag_enable_ref;
+    unsigned char flag[2];
+} tfa_status_t;
 
-/*
- * Vendor functions that we dlsym.
- */
-typedef int (*tfa_device_open_t)(tfa_handle_t*, int);
-typedef int (*tfa_enable_t)(tfa_handle_t*, int);
-
-/*
- * TFA Amplifier device abstraction.
- *
- * lib_handle:       The prebuilt vendor blob, loaded into memory
- * tfa_handle:       Misc data we need to pass to the vendor function calls
- * tfa_lock:         A mutex guarding amplifier enable/disable operations
- * tfa_device_open:  Vendor function for initializing the amplifier
- * tfa_enable:       Vendor function for enabling/disabling the amplifier
- * mode:             Audio mode for the current audio device
- */
 typedef struct {
-    void *lib_handle;
-    tfa_handle_t* tfa_handle;
+    bool flag_powerdown;
+    bool flag_reset;
+    bool flag_enable_cf;
+    bool flag_enable_amp;
+    bool flag_enable_boost;
+    bool flag_cf_configured;
+    bool flag_amp_configured;
+    bool flag_dcdcoff;
+    unsigned char flag[2];
+} tfa_control_t;
+
+typedef struct {
     pthread_mutex_t tfa_lock;
-    tfa_device_open_t tfa_device_open;
-    tfa_enable_t tfa_enable;
     tfa_mode_t mode;
+    struct pcm *pcm;
+    struct mixer *mixer;
+    int fd;
+    tfa_status_t status;
+    tfa_control_t control;
 
-    // for clock init
-    atomic_bool initializing;
     bool clock_enabled;
-    bool writing;
-    pthread_t write_thread;
-    pthread_mutex_t mutex;
-    pthread_cond_t cond;
+    bool enabled;
 } tfa_device_t;
 
 /*
