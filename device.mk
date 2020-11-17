@@ -419,7 +419,6 @@ VENDOR_SECURITY_PATCH = "2017-08-01"
 # Shims
 PRODUCT_PACKAGES += \
     libshim_binder \
-    libcutils_shim \
     libdrm_shim
 
 # Wi-Fi
