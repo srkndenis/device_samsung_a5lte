@@ -379,10 +379,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     InputDisabler
 
-# Touch
-PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.a5
-
 # TimeKeep
 PRODUCT_PACKAGES += \
     timekeep \
