@@ -83,6 +83,9 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
     /system/bin/mediaserver=22 \
     /system/bin/mm-qcamera-daemon=22
 
+# Dedupe VNDK libraries with identical core variants.
+TARGET_VNDK_USE_CORE_VARIANT := true
+
 # Display
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
 TARGET_USES_ION := true
