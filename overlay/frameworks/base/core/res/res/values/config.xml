@@ -353,5 +353,10 @@
 
     <!-- Feature flag to store TaskSnapshot in 16 bit pixel format to save memory. -->
     <bool name="config_use16BitTaskSnapshotPixelFormat">true</bool>
+	
+    <!-- Feature flag to enable memory efficient task snapshots that are used in recents optimized
+         for low memory devices and replace the app transition starting window with the splash
+         screen. -->
+    <bool name="config_lowRamTaskSnapshotsAndRecents">true</bool>
 
 </resources>
