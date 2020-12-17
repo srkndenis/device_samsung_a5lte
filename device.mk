@@ -435,5 +435,16 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
+# Speed profile services and wifi-service to reduce RAM and storage.
+PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
+# Always preopt extracted APKs to prevent extracting out of the APK
+# for gms modules.
+PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
+
+# Use a profile based boot image for this device. Note that this is currently a
+# generic profile and not Android Go optimized.
+PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
+PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-image-profile.txt
+
 # Call the proprietary setup
 $(call inherit-product, vendor/samsung/a5lte/a5lte-vendor.mk)
