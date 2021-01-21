@@ -85,7 +85,6 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
     /system/bin/mm-qcamera-daemon=22
 
 # Display
-OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
 TARGET_USES_ION := true
 TARGET_DISABLE_POSTRENDER_CLEANUP := true
