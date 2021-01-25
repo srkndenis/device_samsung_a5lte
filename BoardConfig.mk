@@ -57,9 +57,6 @@ TARGET_CPU_VARIANT := cortex-a53
 TARGET_USES_64_BIT_BINDER := true
 endif
 
-# LMKD stats logging
-TARGET_LMKD_STATS_LOG := true
-
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
