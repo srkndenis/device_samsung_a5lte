@@ -24,7 +24,7 @@ DEVICE_PACKAGE_OVERLAYS := \
     $(LOCAL_PATH)/overlay-lineage
 
 # ANT+
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     AntHalService \
     com.dsi.ant.antradio_library \
     libantradio
