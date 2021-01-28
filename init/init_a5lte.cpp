@@ -103,7 +103,7 @@ void vendor_load_properties()
         property_override_triple("ro.product.model", "ro.product.system.model", "ro.product.vendor.model", "SM-A500M");
         property_override_triple("ro.product.device", "ro.product.system.device", "ro.product.vendor.device", "a5lte");
 
-        // init_dsds();
+        init_dsds();
     } else if (bootloader.find("A500L") == 0) {
         /* SM-A500L */
         property_override_triple("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/a5ultelgt/a5ultelgt:6.0.1/MMB29M/A500LKLU1CQC1:user/release-keys");
