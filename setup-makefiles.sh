@@ -13,31 +13,39 @@ VENDOR=samsung
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
-if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
+if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
-ANDROID_ROOT="$MY_DIR/../../.."
+ANDROID_ROOT="${MY_DIR}/../../.."
 
-HELPER="$ANDROID_ROOT/tools/extract-utils/extract_utils.sh"
-if [ ! -f "$HELPER" ]; then
-    echo "Unable to find helper script at $HELPER"
+HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
+if [ ! -f "${HELPER}" ]; then
+    echo "Unable to find helper script at ${HELPER}"
     exit 1
 fi
-. "$HELPER"
+source "${HELPER}"
 
 # Initialize the helper
-setup_vendor "$DEVICE" "$VENDOR" "$ANDROID_ROOT"
+setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${ANDROID_ROOT}" true
 
 # Copyright headers and guards
 write_headers
 
-write_makefiles "$MY_DIR"/proprietary-files.txt
-
-# Blobs for TWRP data decryption
-cat << EOF >> "$BOARDMK"
-ifeq (\$(WITH_TWRP),true)
-TARGET_RECOVERY_DEVICE_DIRS += vendor/$VENDOR/$DEVICE/proprietary
-endif
-EOF
+# The standard common blobs
+write_makefiles "${MY_DIR}/proprietary-files.txt" true
 
 # Finish
 write_footers
+
+if [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt" ]; then
+    # Reinitialize the helper for device
+    setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}"
+
+    # Warning headers and guards
+    write_headers
+
+    # The standard device blobs
+    write_makefiles "${MY_DIR}/../${DEVICE}/proprietary-files.txt" true
+
+    # Finish
+    write_footers
+fi
