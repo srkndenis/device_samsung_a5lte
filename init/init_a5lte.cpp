@@ -87,7 +87,7 @@ void vendor_load_properties()
         property_override_triple("ro.product.model", "ro.product.system.model", "ro.product.vendor.model", "SM-A500F");
         property_override_triple("ro.product.device", "ro.product.system.device", "ro.product.vendor.device", "a5lte");
 
-        init_dsds();
+        // init_dsds();
     } else if (bootloader.find("A500G") == 0) {
         /* SM-A500G */
         property_override_triple("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/a5ltedd/a5lte:6.0.1/MMB29M/A500GXXS1CRJ1:user/release-keys");
@@ -95,7 +95,7 @@ void vendor_load_properties()
         property_override_triple("ro.product.model", "ro.product.system.model", "ro.product.vendor.model", "SM-A500G");
         property_override_triple("ro.product.device", "ro.product.system.device", "ro.product.vendor.device", "a5lte");
 
-        init_dsds();
+        // init_dsds();
     } else if (bootloader.find("A500M") == 0) {
         /* SM-A500M */
         property_override_triple("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/a5lteub/a5lte:6.0.1/MMB29M/A500MUBS1CRI1:user/release-keys");
@@ -103,7 +103,7 @@ void vendor_load_properties()
         property_override_triple("ro.product.model", "ro.product.system.model", "ro.product.vendor.model", "SM-A500M");
         property_override_triple("ro.product.device", "ro.product.system.device", "ro.product.vendor.device", "a5lte");
 
-        init_dsds();
+        // init_dsds();
     } else if (bootloader.find("A500L") == 0) {
         /* SM-A500L */
         property_override_triple("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/a5ultelgt/a5ultelgt:6.0.1/MMB29M/A500LKLU1CQC1:user/release-keys");
@@ -118,7 +118,7 @@ void vendor_load_properties()
         property_override_triple("ro.product.model", "ro.product.system.model", "ro.product.vendor.model", "SM-A500H");
         property_override_triple("ro.product.device", "ro.product.system.device", "ro.product.vendor.device", "a53g");
 
-        init_dsds();
+        // init_dsds();
     } else if (bootloader.find("A500Y") == 0) {
         /* SM-A500Y */
         property_override_triple("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/a5ultedv/a5ulte:6.0.1/MMB29M/A500YDVS1CRJ1:user/release-keys");
