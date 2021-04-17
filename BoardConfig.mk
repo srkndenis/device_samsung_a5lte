@@ -199,10 +199,9 @@ endif
 #Light
 TARGET_PROVIDES_LIBLIGHT := true
 
-# Vendor Init
-TARGET_UNIFIED_DEVICE := true
-TARGET_INIT_VENDOR_LIB := libinit_a5lte
-TARGET_RECOVERY_DEVICE_MODULES := libinit_a5lte
+# Init
+TARGET_INIT_VENDOR_LIB ?= //$(DEVICE_PATH):libinit_a5lte
+TARGET_RECOVERY_DEVICE_MODULES ?= libinit_a5lte
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
