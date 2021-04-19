@@ -1,0 +1,15 @@
+type proc_kernel_sched, fs_type;
+type wifi_efs_file, file_type;
+type sensors_efs_file, file_type;
+type sysfs_camera, fs_type, sysfs_type;
+type sysfs_input, fs_type, sysfs_type;
+type sysfs_vibeamp, fs_type, sysfs_type;
+type tap2wake_dev, fs_type, sysfs_type;
+type sysfs_sec_key, fs_type, sysfs_type;
+type sysfs_mdnie, fs_type, sysfs_type;
+type firmware-modem_file, file_type;
+type misc_file, file_type;
+type touchpanel_sysfs, fs_type, sysfs_type;
+type i2c_device, dev_type;
+type app_efs_file, file_type;
+type proc_swap, fs_type;
