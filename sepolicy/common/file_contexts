@@ -1,0 +1,73 @@
+# Lights
+/sys/devices/soc\.0/gpio-leds\.[a-z0-9]+/leds(/.*)?                       u:object_r:sysfs_leds:s0
+/sys/devices/soc\.0/qcom,camera-led-flash\.[a-z0-9]+/leds(/.*)?           u:object_r:sysfs_leds:s0
+/sys/devices/soc\.0/[a-z0-9]+\.i2c/i2c-[0-9]/[0-9]-[a-z0-9]+/leds(/.*)?   u:object_r:sysfs_leds:s0
+
+# Executeables
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.samsung-qcom    u:object_r:hal_lineage_livedisplay_sysfs_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.sensors@1\.0-service.samsung8916        u:object_r:hal_sensors_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.samsung		  u:object_r:hal_light_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper@1\.0-service\.software       u:object_r:hal_gatekeeper_default_exec:s0
+
+# sysfs - graphics/panel
+/sys/class/mhl(/.*)?                                    u:object_r:sysfs_graphics:s0
+/sys/devices/mdp\.[0-9](/.*)?                           u:object_r:sysfs_graphics:s0
+/sys/devices/virtual/graphics/fb0/csc_cfg               u:object_r:sysfs_graphics:s0
+/sys/devices/virtual/lcd/panel(/.*)?                    u:object_r:sysfs_graphics:s0
+
+# sysfs - mdnie
+/sys/devices/virtual/mdnie/mdnie(/.*)?                  u:object_r:sysfs_mdnie:s0
+
+# sysfs
+/sys/devices/virtual/sensors(/.*)?                      u:object_r:sysfs_sensors:s0
+/sys/devices/virtual/input(/.*)?                        u:object_r:sysfs_input:s0
+/sys/devices/virtual/camera(/.*)?                       u:object_r:sysfs_camera:s0
+
+# device nodes
+/dev/alarm                                              u:object_r:alarm_device:s0
+/dev/rfkill                                             u:object_r:wlan_device:s0
+/dev/sec-nfc                                            u:object_r:nfc_device:s0
+/dev/i2c-1                                              u:object_r:audio_device:s0
+/dev/stune(/.*)?                                        u:object_r:cgroup:s0
+
+# sysfs - battery/charger
+/sys/devices/battery\.[0-9]+/power_supply(/.*)?         u:object_r:sysfs_batteryinfo:s0
+/sys/devices/i2c\.[0-9]+/i2c-[0-9]+/[0-9]+-[a-z0-9]+/max[a-z0-9]+-charger/power_supply(/.*)? u:object_r:sysfs_batteryinfo:s0
+/sys/devices/i2c\.[0-9]+/i2c-[0-9]+/[0-9]+-[a-z0-9]+/power_supply(/.*)?                      u:object_r:sysfs_batteryinfo:s0
+/sys/devices/soc\.0/i2c\.[0-9]+/i2c-[0-9]+/[0-9]+-[a-z0-9]+/[a-z0-9]+-charger/power_supply(/.*)?   u:object_r:sysfs_batteryinfo:s0
+/sys/devices/soc\.0/i2c\.[0-9]+/i2c-[0-9]+/[0-9]+-[a-z0-9]+/power_supply/[a-z0-9]+-fuelgauge(/.*)? u:object_r:sysfs_batteryinfo:s0
+/sys/devices/soc\.0/[a-z0-9]+\.usb/power_supply(/.*)?   u:object_r:sysfs_batteryinfo:s0
+/sys/devices/msm_dwc3/power_supply(/.*)?                u:object_r:sysfs_batteryinfo:s0
+
+# rootfs
+/firmware-modem                                         u:object_r:firmware_file:s0
+/tombstones                                             u:object_r:rootfs:s0
+/hidden                                                 u:object_r:rootfs:s0
+/persist                                                u:object_r:rootfs:s0
+
+# sysfs - iio
+/sys/bus/iio/devices(/.*)?                                                          u:object_r:sysfs_iio:s0
+/sys/devices/[a-f0-9]+\.spi/spi_master/spi[0-9]+/spi[0-9]+\.0/iio:device[0-9](/.*)? u:object_r:sysfs_iio:s0
+
+# sysfs - sec
+/sys/devices/platform/sec-thermistor(/.*)?              u:object_r:sysfs_sec_thermistor:s0
+/sys/devices/virtual/sec/bamdmux(/.*)?                  u:object_r:sysfs_sec_bamdmux:s0
+/sys/devices/virtual/sec/led(/.*)?                      u:object_r:sysfs_sec_led:s0
+/sys/devices/virtual/sec/sec_barcode_emul(/.*)?         u:object_r:sysfs_sec_barcode_emul:s0
+/sys/devices/virtual/sec/sec_epen(/.*)?                 u:object_r:sysfs_sec_epen:s0
+/sys/devices/virtual/sec/sec_ir(/.*)?                   u:object_r:sysfs_sec_ir:s0
+/sys/devices/virtual/sec/sec_key(/.*)?                  u:object_r:sysfs_sec_key:s0
+/sys/devices/virtual/sec/sec_touchkey(/.*)?             u:object_r:sysfs_sec_touchkey:s0
+/sys/devices/virtual/sec/switch(/.*)?                   u:object_r:sysfs_sec_switch:s0
+/sys/devices/virtual/sec/tsp(/.*)?                      u:object_r:sysfs_sec_tsp:s0
+/proc/simslot_count                                     u:object_r:proc_sec_simslot:s0
+
+# block devices
+/dev/block/platform/msm_sdcc\.1/by-name/efs             u:object_r:efs_block_device:s0
+/dev/block/platform/msm_sdcc\.1/by-name/fota            u:object_r:misc_block_device:s0
+
+# sysfs - usb
+/sys/devices/virtual/host_notify/usb_otg(/.*)?               u:object_r:sysfs_usb_otg:s0
+
+# sysfs - cpu/perf
+/sys/devices/system/soc/soc0(/.*)?                      u:object_r:sysfs_socinfo:s0
