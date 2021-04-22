@@ -123,7 +123,6 @@ BOARD_ROOT_EXTRA_FOLDERS := \
     firmware \
     firmware-modem \
     efs \
-    misc \
     persist
 
 # FM
