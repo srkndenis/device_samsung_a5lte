@@ -203,16 +203,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.target.rc \
+    init.qcom.mem.sh \
+    init.qcom.power.rc \
     init.qcom.rc \
-    init.qcom.post_boot.sh \
-    init.qcom.early_boot.sh \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
     ueventd.qcom.rc
 
 PRODUCT_PACKAGES += \
-    init.qcom.bt.sh \
-    init.boot_boost.sh
+    init.qcom.bt.sh
 
 # Lights
 PRODUCT_PACKAGES += \
