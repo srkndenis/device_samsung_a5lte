@@ -76,6 +76,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.latch_unsignaled=1 \
     persist.hwc.mdpcomp.enable=true \
     persist.hwc.ptor.enable=true \
+    persist.hwc.pubypass=true \
     ro.qualcomm.cabl=0 \
     ro.qualcomm.svi=1 \
     ro.opengles.version=196608 \
