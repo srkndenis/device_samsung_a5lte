@@ -445,9 +445,5 @@ PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 # for gms modules.
 PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
 
-# Youtube by Vanced Team
-PRODUCT_PACKAGES += \
-    Youtube
-
 # Call the proprietary setup
 $(call inherit-product, vendor/samsung/a5lte/a5lte-vendor.mk)
