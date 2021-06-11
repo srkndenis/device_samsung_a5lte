@@ -78,11 +78,6 @@ TARGET_USE_VENDOR_CAMERA_EXT := true
 TARGET_USES_QTI_CAMERA_DEVICE := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 
-# Camera
-TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
-    /system/bin/mediaserver=22 \
-    /system/bin/mm-qcamera-daemon=22
-
 # Dedupe VNDK libraries with identical core variants.
 TARGET_VNDK_USE_CORE_VARIANT := true
 
